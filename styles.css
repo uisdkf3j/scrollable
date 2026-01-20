@@ -1,0 +1,268 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #ffffff;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Hero and footer sections */
+.section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px;
+}
+
+.hero {
+    background: #ffffff;
+}
+
+.footer-section {
+    background: #ffffff;
+}
+
+.content-centered {
+    max-width: 700px;
+    text-align: center;
+}
+
+.content-centered h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+    letter-spacing: -0.02em;
+}
+
+.content-centered p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* Model section wrapper - contains both text and canvas */
+.model-section-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 300vh; /* Height for 3 sections worth of scrolling */
+}
+
+.model-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0 60px;
+}
+
+.text-block {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0;
+}
+
+.text-block h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+    letter-spacing: -0.01em;
+}
+
+.text-block p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 1rem;
+    margin-right: 10px;
+    max-width: 500px;
+}
+
+.text-block p:last-of-type {
+    margin-bottom: 1rem;
+}
+
+/* Cycle furniture button */
+.cycle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-top: 1rem;
+    padding: 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cycle-btn:hover {
+    border-color: #999;
+    color: #333;
+    background: #f5f5f5;
+}
+
+.cycle-btn:active {
+    transform: scale(0.95);
+}
+
+.cycle-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Sun texture slider */
+.sun-slider-container {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 500px;
+}
+
+.sun-slider {
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: #f0f0f0;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.sun-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #333;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.sun-slider::-webkit-slider-thumb:hover {
+    background: #1a1a1a;
+}
+
+.sun-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #333;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.sun-slider::-moz-range-thumb:hover {
+    background: #1a1a1a;
+}
+
+.sun-slider-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* Canvas wrapper - sticky positioning */
+.model-canvas-wrapper {
+    position: relative;
+}
+
+.model-canvas-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+#renderCanvas {
+    width: 100%;
+    height: 100%;
+    max-height: 80vh;
+    display: block;
+    outline: none;
+    touch-action: none;
+    border-radius: 12px;
+    background: #fff;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .model-section-wrapper {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .model-content {
+        padding: 0 30px;
+        order: 2;
+    }
+
+    .model-canvas-wrapper {
+        order: 1;
+        height: 60vh;
+        position: relative;
+    }
+
+    .model-canvas-sticky {
+        position: relative;
+        height: 60vh;
+        padding: 20px;
+    }
+
+    .text-block {
+        min-height: auto;
+        padding: 60px 0;
+    }
+
+    .content-centered h1 {
+        font-size: 2.2rem;
+    }
+
+    .text-block h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 20px;
+    }
+
+    .model-content {
+        padding: 0 20px;
+    }
+
+    .content-centered h1 {
+        font-size: 1.8rem;
+    }
+
+    .text-block h2 {
+        font-size: 1.5rem;
+    }
+
+    .content-centered p,
+    .text-block p {
+        font-size: 1rem;
+    }
+}
